@@ -1,0 +1,10 @@
+{
+  "name": "second-opinion",
+  "version": "0.1.0",
+  "description": "Structural tests for the second-opinion Claude Code plugin.",
+  "private": true,
+  "scripts": {
+    "test": "node test/validate.mjs"
+  },
+  "license": "MIT"
+}

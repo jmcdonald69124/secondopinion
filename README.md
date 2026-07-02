@@ -75,7 +75,14 @@ The review is only as good as the evidence it is given. If it can see the agent'
 
 ## Contributing
 
-The rubric lives in `agents/decision-reviewer.md`. If your team weighs these dimensions differently, fork it and change the questions. Run `claude plugin validate` before you submit anywhere.
+The rubric lives in `agents/decision-reviewer.md`. If your team weighs these dimensions differently, fork it and change the questions.
+
+Before you submit anywhere, run the tests (see [`test/`](./test)):
+
+```
+npm test        # structural checks: manifests, frontmatter, cross-references, and `claude plugin validate`
+test/smoke.sh   # optional: runs the reviewer against a fixture change (needs the claude CLI, auth, and jq)
+```
 
 ## License
 
