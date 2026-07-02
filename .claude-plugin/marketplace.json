@@ -1,0 +1,13 @@
+{
+  "name": "second-opinion",
+  "owner": {
+    "name": "Joshua McDonald"
+  },
+  "plugins": [
+    {
+      "name": "second-opinion",
+      "source": ".",
+      "description": "Interrogates the decisions behind AI-written code: right path, sound business logic, cost to own. Reports for a human, or a verdict for an approving agent."
+    }
+  ]
+}

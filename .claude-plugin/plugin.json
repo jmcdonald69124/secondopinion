@@ -1,0 +1,20 @@
+{
+  "name": "second-opinion",
+  "description": "Interrogates the decisions behind AI-written code, not just its correctness: whether this was the right path, whether the business logic is sound, and what it will cost to own. Produces a decision review for a human, or a machine-readable verdict for an approving agent.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Joshua McDonald"
+  },
+  "homepage": "https://github.com/jmcdonald69124/secondopinion",
+  "repository": "https://github.com/jmcdonald69124/secondopinion",
+  "license": "MIT",
+  "keywords": [
+    "code-review",
+    "ai-code-review",
+    "coding-agents",
+    "reasoning",
+    "architecture",
+    "maintainability",
+    "verdict"
+  ]
+}
