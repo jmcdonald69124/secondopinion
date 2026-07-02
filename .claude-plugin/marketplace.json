@@ -1,5 +1,6 @@
 {
   "name": "second-opinion",
+  "description": "A decision reviewer for AI-written code: interrogates whether a change was the right path, not just whether it works.",
   "owner": {
     "name": "Joshua McDonald"
   },
