@@ -54,7 +54,7 @@ git commit -qm "cache users in memory to cut db load"
 echo "smoke: running the reviewer against the fixture change..." >&2
 # Runs in a throwaway temp repo, so bypassing permission prompts is safe here
 # and necessary — headless mode cannot answer the git / subagent prompts.
-out="$(claude -p "/second-opinion:interrogate main~1..HEAD" \
+out="$(claude -p "/second-opinion:interrogate HEAD~1..HEAD" \
   --plugin-dir "$repo_root" \
   --permission-mode bypassPermissions 2>&1)" || {
     echo "smoke: claude invocation failed" >&2
