@@ -63,6 +63,30 @@ Two things: a decision review written for a person (what the change is trying to
 
 An approving agent should treat `block`, or any `critical` finding, as a stop. `revise` is a judgment call on your own tolerance for risk.
 
+## Example
+
+Here is a real, unedited run against a change that added a process-local user cache to cut database load. The full transcript — human report and verdict block — is in [`examples/decision-review.md`](./examples/decision-review.md). An excerpt:
+
+```
+# Decision Review: In-memory user cache in `store.js`
+
+**Verdict:** revise · **Confidence:** medium
+
+## The decisions that were made
+2. **Never invalidate or expire entries.** ... Once a user is read, that snapshot
+   is served for the life of the process. For a `users` table — where email, name,
+   roles, and permissions change — this means the app serves stale identity data
+   indefinitely. Nothing in the intent says staleness is acceptable.
+3. **Let the cache grow forever.** ... a slow leak that ends in OOM. The author's
+   own comment flags this ("grows forever") without resolving it.
+
+## If you approve this, you are accepting
+- Users may see stale name/email/role data until the process restarts ...
+- Memory grows with distinct users requested; a long-running process will OOM ...
+```
+
+Output is non-deterministic — the verdict is a model's judgment, so the wording, and sometimes the `revise`/`block` call itself, varies between runs. That is why the [tests](./test) assert only on the machine-readable contract, never on the prose.
+
 ## A note on honesty
 
 The review is only as good as the evidence it is given. If it can see the agent's plan and the history, it can judge the reasoning. If all it has is the diff, it says so and lowers its confidence, rather than pretending to a certainty it hasn't earned. That admission is the point: a reviewer that hides what it couldn't see is a rubber stamp with extra steps.
