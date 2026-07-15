@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  structural:
+    name: structural tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Runs test/validate.mjs: manifests, frontmatter, and cross-references.
+      # It calls `claude plugin validate` when the CLI is present and cleanly
+      # skips that one check when it is not (as here), so no auth is needed.
+      # The behavioral test (test/smoke.sh) is intentionally not run in CI:
+      # it needs the claude CLI, authentication, and spends tokens.
+      - run: npm test
